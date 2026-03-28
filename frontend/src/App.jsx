@@ -7,6 +7,7 @@ import AuthPage from './pages/signup';
 import Login from './pages/login';
 import Landing from './pages/landing_page';
 import GroupChat from './pages/group_chat';
+import MainLayout from './components/MainLayout';
 
 function App() {
   const [session, setSession] = useState(null);
@@ -44,7 +45,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<AuthPage />} />
         <Route path="/" element={<Landing />} />
-        <Route path="/groupchat" element={<GroupChat />} />
+        
+
+        <Route element={<MainLayout />}>
+          <Route path="/groupchat" element={<GroupChat />} /> 
+        </Route>
 
       </Routes>
     </div>

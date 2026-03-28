@@ -58,36 +58,7 @@ export default function SynapseDashboard() {
         `}
       </style>
 
-      {/* NAV */}
-      <nav className="sticky top-0 z-50 h-[56px] bg-[#f7f6f2]/90 backdrop-blur-md border-b border-[#e4e2de] flex items-center justify-between px-[1.75rem]">
-        <div className="flex items-center gap-[1.6rem]">
-          <span className="font-serif text-[17px] text-[#0e0e0e]">Synapse</span>
-          <div className="flex items-center gap-[1.6rem]">
-            {["Dashboard", "Sessions", "Quizzes", "Chat"].map(l => (
-              <a 
-                key={l} 
-                href="#" 
-                className={`text-[13px] no-underline transition-colors ${
-                  l === "Dashboard" 
-                    ? "text-[#0e0e0e] font-medium border-b-[1.5px] border-[#0e0e0e] pb-[2px]" 
-                    : "text-[#888] font-normal hover:text-[#0e0e0e]"
-                }`}
-              >
-                {l}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="flex items-center gap-[10px]">
-          <button className="bg-[#1a6b5c] text-[#fff] border-none px-[15px] py-[7px] rounded-[20px] text-[12.5px] font-sans font-medium cursor-pointer hover:bg-[#2a8a74] transition-colors flex items-center gap-2">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            Start Session
-          </button>
-          <div className="w-[28px] h-[28px] rounded-full bg-[#0e0e0e] text-white flex items-center justify-center text-[10px] font-semibold cursor-pointer">
-            JV
-          </div>
-        </div>
-      </nav>
+      
 
       {/* MAIN LAYOUT */}
       <main className="flex-1 max-w-[1240px] mx-auto w-full p-[2.5rem_1.5rem] grid grid-cols-[1fr_360px] gap-[2rem] items-start">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Users, ArrowRight } from 'lucide-react'; // Using Lucide for cleaner code
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
@@ -30,9 +31,15 @@ const Landing = () => {
         </p>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-3">
-          <button className="w-full md:w-auto bg-[#111010] text-white px-6.5 py-3 rounded-lg text-sm font-normal tracking-wide hover:opacity-75 transition-opacity">
+          {/* <button className="w-full md:w-auto bg-[#111010] text-white px-6.5 py-3 rounded-lg text-sm font-normal tracking-wide hover:opacity-75 transition-opacity">
             Start for free
-          </button>
+          </button> */}
+          <Link 
+            to="/signup" 
+            className="w-full md:w-auto bg-[#111010] text-white px-6.5 py-3 rounded-lg text-sm font-normal tracking-wide hover:opacity-75 transition-opacity inline-flex justify-center items-center no-underline cursor-pointer"
+          >
+            Start for free
+          </Link>
           <button className="w-full md:w-auto bg-transparent text-[#888] border border-[#e4e2de] px-6.5 py-3 rounded-lg text-sm font-normal hover:text-[#111010] hover:border-[#bbb] transition-all">
             See how it works
           </button>

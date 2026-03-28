@@ -6,6 +6,7 @@ import { supabase } from './lib/supabase';
 import AuthPage from './pages/signup';
 import Login from './pages/login';
 import Landing from './pages/landing_page';
+import GroupChat from './pages/group_chat';
 
 function App() {
   const [session, setSession] = useState(null);
@@ -43,6 +44,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<AuthPage />} />
         <Route path="/" element={<Landing />} />
+        <Route path="/groupchat" element={<GroupChat />} />
 
       </Routes>
     </div>

@@ -78,9 +78,12 @@ const Landing = () => {
           {/* Card Footer */}
           <div className="p-8 py-5 border-t border-[#e4e2de] flex flex-col md:flex-row items-center justify-between gap-4 bg-[#f9f7f4]/50">
             <span className="text-[12.5px] text-[#888] font-light">Free to join — no credit card needed</span>
+            <Link
+              to="/signup">
             <button className="bg-[#1a6b5c] text-white px-5 py-2.5 rounded-lg text-[13px] font-normal hover:opacity-80 transition-opacity flex items-center gap-1.5">
               Sign up <ArrowRight size={14} />
             </button>
+            </Link>
           </div>
         </div>
       </div>

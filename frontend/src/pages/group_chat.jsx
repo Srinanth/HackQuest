@@ -58,26 +58,7 @@ export default function SynapseGroupChat() {
             </p>
           </div>
 
-          {/* INSTRUCTOR CARD — green */}
-          <div className="bg-[#1a6b5c] rounded-[18px] p-[1.3rem] relative overflow-hidden">
-            <div className="absolute top-[-24px] right-[-24px] w-[80px] h-[80px] rounded-full bg-white/10 pointer-events-none"></div>
-            <p className="font-serif text-[1.1rem] text-white mb-4 relative z-10">Lead Instructor</p>
-            
-            {MEMBERS.instructors.map(member => (
-              <div key={member.id} className="flex items-center gap-3 relative z-10">
-                <div className="relative w-[36px] h-[36px] shrink-0">
-                  <div className="w-full h-full rounded-full bg-white/20 flex items-center justify-center font-semibold text-[13px] text-white">
-                    {member.initials}
-                  </div>
-                  <span className={`absolute bottom-0 right-0 w-[10px] h-[10px] border-2 border-[#1a6b5c] rounded-full ${member.dot}`}></span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[13px] font-medium text-white">{member.name}</span>
-                  <span className="text-[11.5px] text-white/70 font-light">{member.status}</span>
-                </div>
-              </div>
-            ))}
-          </div>
+          
 
           {/* STUDENTS CARD — white */}
           <div className="bg-white border border-[#e4e2de] rounded-[18px] p-[1.3rem] flex flex-col gap-[1rem]">

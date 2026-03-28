@@ -8,9 +8,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Dashboard', path: '/dashboard' },
-    { name: 'Sessions', path: '/sessions' },
     { name: 'Groups', path: '/groupchat' },
     { name: 'Quiz', path: '/quiz' },
+    { name: 'Leaderboard', path: '/leaderboard' },
   ];
 
   return (
@@ -48,9 +48,7 @@ const Navbar = () => {
 
           {/* Right Side: Actions */}
           <div className="flex items-center gap-3 md:gap-5">
-            <button className="hidden sm:flex bg-slate-900 hover:bg-emerald-600 text-white px-5 py-2 rounded-full text-xs font-black transition-all active:scale-95 shadow-lg shadow-slate-200">
-              New Chat
-            </button>
+            
             
             <div className="flex items-center gap-1">
               <button className="p-2 text-slate-400 hover:text-slate-900 hover:bg-slate-50 rounded-full transition-all">
@@ -91,9 +89,7 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <button className="w-full bg-slate-900 text-white py-3 rounded-xl font-black text-sm mt-4">
-            New Chat
-          </button>
+          
         </div>
       )}
     </nav>

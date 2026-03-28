@@ -10,6 +10,9 @@ import GroupChat from './pages/group_chat';
 import MainLayout from './components/MainLayout';
 import ExamPrepQuiz from './pages/exam_prep_quiz';
 import SynapseDashboard from './pages/dashboard';
+import SynapseSession from './pages/session';
+import SynapseLeaderboard from './pages/leaderboard';
+import SynapseApp from './pages/createsession';
 
 function App() {
   const [session, setSession] = useState(null);
@@ -53,6 +56,9 @@ function App() {
           <Route path="/groupchat" element={<GroupChat />} /> 
           <Route path="/quiz" element={<ExamPrepQuiz />} />
           <Route path="/dashboard" element={<SynapseDashboard />} />
+          <Route path="/session" element={<SynapseSession />} />
+          <Route path="/leaderboard" element={<SynapseLeaderboard />} />
+          <Route path="/createsession" element={<SynapseApp />} />
 
         </Route>
 

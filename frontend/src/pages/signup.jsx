@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { supabase } from '../lib/supabase';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, User, Eye, EyeOff, Loader2, ArrowRight, Check } from 'lucide-react';
 
 const Auth = () => {
@@ -158,7 +158,7 @@ const Auth = () => {
 
         {/* Toggle Footer */}
         <div className="mt-[2rem] text-center">
-          <button 
+          <Link to="/login" 
             onClick={() => setIsLogin(!isLogin)}
             className="text-[#888] text-[13px] font-light hover:text-[#0e0e0e] transition-colors bg-transparent border-none cursor-pointer"
           >
@@ -166,7 +166,7 @@ const Auth = () => {
             <span className="text-[#0e0e0e] font-medium border-b border-[#0e0e0e]/30 pb-[1px] hover:border-[#0e0e0e] transition-colors">
               {isLogin ? "Create an account" : "Log in here"}
             </span>
-          </button>
+          </Link>
         </div>
 
       </div>

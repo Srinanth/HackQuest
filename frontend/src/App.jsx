@@ -8,6 +8,7 @@ import Login from './pages/login';
 import Landing from './pages/landing_page';
 import GroupChat from './pages/group_chat';
 import MainLayout from './components/MainLayout';
+import ExamPrepQuiz from './pages/exam_prep_quiz';
 
 function App() {
   const [session, setSession] = useState(null);
@@ -49,6 +50,7 @@ function App() {
 
         <Route element={<MainLayout />}>
           <Route path="/groupchat" element={<GroupChat />} /> 
+          <Route path="/quiz" element={<ExamPrepQuiz />} />
         </Route>
 
       </Routes>

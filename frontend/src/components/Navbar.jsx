@@ -8,9 +8,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Dashboard', path: '/dashboard' },
-    { name: 'Messages', path: '/messages' },
-    { name: 'Files', path: '/files' },
-    { name: 'Calendar', path: '/calendar' },
+    { name: 'Sessions', path: '/sessions' },
+    { name: 'Groups', path: '/groupchat' },
+    { name: 'Quiz', path: '/quiz' },
   ];
 
   return (

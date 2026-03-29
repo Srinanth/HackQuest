@@ -58,7 +58,7 @@ export const createSession = async (req, res) => {
 export const joinSession = async (req, res) => {
   try {
     // --- TEMPORARY MOCK FOR TESTING ---
-    req.user = { id: '4d64a58b-9ea1-4c92-8767-9c29ab113b52', name: 'Faaaa' }; 
+    req.user = { id: 'YOUR-SUPABASE-USER-UUID', name: 'Faaaa' }; 
     // ----------------------------------
 
     const { sessionId } = req.params;

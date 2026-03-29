@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { supabase } from '../lib/supabase';
-import { useNavigate } from 'react-router-dom';
-import { Mail, Lock, User, Eye, EyeOff, Loader2, ChevronRight, Check } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Mail, Lock, User, Eye, EyeOff, Loader2, ArrowRight, Check } from 'lucide-react';
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -48,94 +48,107 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-6 relative overflow-hidden">
+    <div className="min-h-screen bg-[#f7f6f2] flex items-center justify-center p-6 relative overflow-hidden font-sans text-[#0e0e0e] selection:bg-[#1a6b5c]/20">
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&display=swap');
+          .font-serif { font-family: 'Instrument Serif', serif; }
+          .font-sans { font-family: 'Geist', sans-serif; }
+        `}
+      </style>
       
-      {/* Decorative Elements */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-50 rounded-full blur-3xl opacity-50"></div>
-      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-100 rounded-full blur-3xl opacity-30"></div>
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle_at_100%_0%,rgba(26,107,92,.08)_0%,transparent_70%)] pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[radial-gradient(circle_at_0%_100%,rgba(14,14,14,.05)_0%,transparent_70%)] pointer-events-none"></div>
 
-      <div className="w-full max-w-[460px] relative z-10">
+      <div className="w-full max-w-[440px] relative z-10">
         
         {/* Header */}
-        <div className="mb-10 text-center">
-          <div className="inline-flex items-center justify-center w-14 h-14 bg-emerald-500 rounded-2xl mb-6 shadow-lg shadow-emerald-200">
-            <div className="w-6 h-6 border-4 border-white rounded-sm"></div>
+        <div className="mb-[2.5rem] text-center">
+          <div className="inline-flex items-center justify-center w-[48px] h-[48px] bg-[#0e0e0e] rounded-[14px] mb-[1.5rem] shadow-sm">
+            <span className="font-serif text-[1.8rem] text-white">S</span>
           </div>
-          <h1 className="text-4xl font-black text-slate-900 tracking-tight mb-3">
-            {isLogin ? "Welcome Back" : "Get Started"}
+          <h1 className="font-serif text-[3rem] text-[#0e0e0e] leading-[1] tracking-[-.5px] mb-[.5rem]">
+            {isLogin ? "Welcome Back" : "Join Synapse"}
           </h1>
-          <p className="text-slate-500 text-[15px] font-medium">
-            Collaborative learning with <span className="text-emerald-600 font-bold">7-day persistence</span>.
+          <p className="text-[14px] text-[#888] font-light">
+            Collaborative learning. Defined by focus.
           </p>
         </div>
 
         {/* Form Card */}
-        <div className="bg-white border-2 border-slate-50 rounded-[2.5rem] p-8 md:p-10 shadow-2xl shadow-emerald-900/5">
-          <form onSubmit={handleSubmit} className="space-y-5">
+        <div className="bg-white border border-[#e4e2de] rounded-[24px] p-[2.5rem] shadow-sm">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-[1.5rem]">
             
+            {/* Full Name (Signup Only) */}
             {!isLogin && (
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Full Name</label>
+              <div className="flex flex-col gap-[6px]">
+                <label className="text-[11px] font-bold text-[#888] uppercase tracking-[1px]">Full Name</label>
                 <div className="relative group">
-                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300 group-focus-within:text-emerald-500 transition-colors" />
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-[16px] h-[16px] text-[#aaa] group-focus-within:text-[#1a6b5c] transition-colors" />
                   <input 
-                    type="text" name="fullName" placeholder="Leonardo da Vinci" 
-                    className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border-2 border-transparent rounded-2xl focus:bg-white focus:border-emerald-500 outline-none transition-all placeholder:text-slate-300 text-slate-900 font-medium"
+                    type="text" name="fullName" placeholder="e.g. Julian Voss" 
+                    className="w-full pl-[2.5rem] pr-[1rem] py-[12px] bg-[#f7f6f2] border border-[#e4e2de] rounded-[12px] focus:bg-white focus:border-[#1a6b5c] outline-none transition-colors placeholder:text-[#aaa] text-[14px] text-[#0e0e0e] font-sans"
                     onChange={handleChange} required 
                   />
                 </div>
               </div>
             )}
 
-            <div className="space-y-1.5">
-              <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Email Address</label>
+            {/* Email */}
+            <div className="flex flex-col gap-[6px]">
+              <label className="text-[11px] font-bold text-[#888] uppercase tracking-[1px]">Email Address</label>
               <div className="relative group">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300 group-focus-within:text-emerald-500 transition-colors" />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-[16px] h-[16px] text-[#aaa] group-focus-within:text-[#1a6b5c] transition-colors" />
                 <input 
-                  type="email" name="email" placeholder="leo@scholarly.edu" 
-                  className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border-2 border-transparent rounded-2xl focus:bg-white focus:border-emerald-500 outline-none transition-all placeholder:text-slate-300 text-slate-900 font-medium"
+                  type="email" name="email" placeholder="julian@synapse.edu" 
+                  className="w-full pl-[2.5rem] pr-[1rem] py-[12px] bg-[#f7f6f2] border border-[#e4e2de] rounded-[12px] focus:bg-white focus:border-[#1a6b5c] outline-none transition-colors placeholder:text-[#aaa] text-[14px] text-[#0e0e0e] font-sans"
                   onChange={handleChange} required 
                 />
               </div>
             </div>
 
-            <div className="space-y-1.5">
-              <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Password</label>
+            {/* Password */}
+            <div className="flex flex-col gap-[6px]">
+              <label className="text-[11px] font-bold text-[#888] uppercase tracking-[1px]">Password</label>
               <div className="relative group">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300 group-focus-within:text-emerald-500 transition-colors" />
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-[16px] h-[16px] text-[#aaa] group-focus-within:text-[#1a6b5c] transition-colors" />
                 <input 
-                  type={showPassword ? "text" : "password"} name="password" placeholder="••••••••••••" 
-                  className="w-full pl-12 pr-12 py-3.5 bg-slate-50 border-2 border-transparent rounded-2xl focus:bg-white focus:border-emerald-500 outline-none transition-all placeholder:text-slate-300 text-slate-900 font-medium"
+                  type={showPassword ? "text" : "password"} name="password" placeholder="••••••••" 
+                  className="w-full pl-[2.5rem] pr-[2.5rem] py-[12px] bg-[#f7f6f2] border border-[#e4e2de] rounded-[12px] focus:bg-white focus:border-[#1a6b5c] outline-none transition-colors placeholder:text-[#aaa] text-[14px] text-[#0e0e0e] font-sans tracking-widest"
                   onChange={handleChange} required 
                 />
                 <button 
                   type="button" onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 hover:text-emerald-600 transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#aaa] hover:text-[#0e0e0e] transition-colors bg-transparent border-none cursor-pointer"
                 >
-                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
               </div>
             </div>
 
             {/* Terms (Signup Only) */}
             {!isLogin && (
-              <div className="flex items-center gap-3 pt-2 ml-1">
-                <div className="relative flex items-center justify-center w-5 h-5">
-                  <input type="checkbox" className="peer appearance-none w-5 h-5 bg-slate-100 rounded-md checked:bg-emerald-500 transition-all cursor-pointer" required />
-                  <Check className="absolute w-3 h-3 text-white opacity-0 peer-checked:opacity-100 pointer-events-none" />
+              <div className="flex items-center gap-[10px] mt-[.5rem]">
+                <div className="relative flex items-center justify-center w-[18px] h-[18px]">
+                  <input type="checkbox" className="peer appearance-none w-[18px] h-[18px] bg-[#f7f6f2] border border-[#e4e2de] rounded-[4px] checked:bg-[#1a6b5c] checked:border-[#1a6b5c] transition-all cursor-pointer m-0" required />
+                  <Check className="absolute w-[12px] h-[12px] text-white opacity-0 peer-checked:opacity-100 pointer-events-none" strokeWidth={3} />
                 </div>
-                <p className="text-xs text-slate-400 font-medium">I agree to the <span className="text-slate-900 font-bold underline cursor-pointer">Terms</span></p>
+                <p className="text-[12.5px] text-[#888] font-light">
+                  I agree to the <span className="text-[#0e0e0e] font-medium border-b border-[#0e0e0e]/30 cursor-pointer hover:border-[#0e0e0e]">Terms of Service</span>
+                </p>
               </div>
             )}
 
+            {/* Submit Button */}
             <button 
               type="submit" disabled={loading}
-              className="w-full bg-slate-900 hover:bg-emerald-600 text-white font-black py-4 rounded-2xl transition-all flex items-center justify-center gap-3 active:scale-[0.98] shadow-xl shadow-slate-200 mt-4 group"
+              className="w-full bg-[#0e0e0e] hover:bg-[#1a6b5c] text-white font-semibold text-[13px] tracking-[.5px] py-[14px] rounded-[14px] transition-all flex items-center justify-center gap-[8px] active:scale-[0.98] shadow-sm mt-[.5rem] uppercase border-none cursor-pointer group disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              {loading ? <Loader2 className="animate-spin" /> : (
+              {loading ? <Loader2 className="animate-spin w-[18px] h-[18px]" /> : (
                 <>
-                  {isLogin ? "LOG IN" : "CREATE ACCOUNT"}
-                  <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  {isLogin ? "Log In" : "Create Account"}
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </>
               )}
             </button>
@@ -144,17 +157,18 @@ const Auth = () => {
         </div>
 
         {/* Toggle Footer */}
-        <div className="mt-10 text-center">
-          <button 
+        <div className="mt-[2rem] text-center">
+          <Link to="/login" 
             onClick={() => setIsLogin(!isLogin)}
-            className="text-slate-400 text-sm font-medium hover:text-emerald-600 transition-colors"
+            className="text-[#888] text-[13px] font-light hover:text-[#0e0e0e] transition-colors bg-transparent border-none cursor-pointer"
           >
-            {isLogin ? "New here? " : "Joined before? "} 
-            <span className="text-slate-900 font-black underline underline-offset-4">
-              {isLogin ? "Create an account" : "Log in now"}
+            {isLogin ? "New to Synapse? " : "Already have an account? "} 
+            <span className="text-[#0e0e0e] font-medium border-b border-[#0e0e0e]/30 pb-[1px] hover:border-[#0e0e0e] transition-colors">
+              {isLogin ? "Create an account" : "Log in here"}
             </span>
-          </button>
+          </Link>
         </div>
+
       </div>
     </div>
   );

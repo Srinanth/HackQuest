@@ -37,8 +37,9 @@ const Auth = () => {
           password: formData.password,
           options: { data: { full_name: formData.fullName } }
         });
+        
         if (error) throw error;
-        alert("Success! Please check your email for a verification link.");
+        navigate('/dashboard');
       }
     } catch (error) {
       alert(error.message);

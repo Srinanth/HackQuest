@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import sessionRoutes from './routes/sessionRoutes.js'
+
+import quizRoutes from './routes/quizRoutes.js'
 
 dotenv.config();
 
@@ -10,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
-app.use('/api/sessions', sessionRoutes);
+app.use('/api/quiz', quizRoutes);
 
 app.get('/', (req, res) => {
     res.json({ message: "API Running with modules.." });

@@ -21,7 +21,7 @@ const Navbar = () => {
           {/* Left Side: Logo & Links */}
           <div className="flex items-center gap-8">
             <Link to="/dashboard" className="text-xl font-black text-slate-900 tracking-tighter">
-              StudioConnect
+              Synapse 
             </Link>
             
             {/* Desktop Navigation */}
